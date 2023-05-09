@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import Graph from "./Graph";
 import MyChart from "./MyChart";
-
+import "./App.css"
 
 function FetchData() {
   const [click, setClick] = useState(false);
   const [wordCount, setWordCount] = useState({}); //use state object for filtered words
-  const [wordCountNonFilter, setWordCountNonFilter] = useState({}); //use state object for non filtered words
 
   const handleClick = async () => {
     const response = await fetch(
@@ -34,13 +32,6 @@ function FetchData() {
     }
     setWordCount(filtered);
 
-    // Counting the frequency of non filtered words
-    const nonfiltered = {};
-    for (const word of words) {
-      nonfiltered[word] = (nonfiltered[word] || 0) + 1;
-    }
-
-    setWordCountNonFilter(nonfiltered);
 
     setClick(true);
 
@@ -48,11 +39,9 @@ function FetchData() {
 
   return (
     <div className="App">
-      <button onClick={handleClick}>Submit</button>
       
-      {click ? <MyChart data={wordCount} />: ''}
+      {click ? <MyChart data={wordCount} /> : <button onClick={handleClick} className="submit">Submit</button>}
 
-      {click ? <MyChart data={wordCountNonFilter} /> : ''}
       
       
     </div>
