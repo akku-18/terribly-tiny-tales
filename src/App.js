@@ -3,7 +3,7 @@ import MyChart from "./MyChart";
 import "./App.css"
 
 function FetchData() {
-  const [click, setClick] = useState(false);
+  const [click, setClick] = useState(false); //use state for click handling
   const [wordCount, setWordCount] = useState({}); //use state object for filtered words
 
   const handleClick = async () => {
