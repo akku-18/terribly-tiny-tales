@@ -11,6 +11,7 @@ export default function ExportCSV({ xAxis, yAxis }) {
     y: yValues[index],
   }));
 
+  // Function to handle the onClick event and downlaod the csv file
   function handleExportClick() {
     const csv = Papa.unparse(data);
     const csvData = new Blob([csv], { type: "text/csv;charset=utf-8;" });
