@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MyChart from "./MyChart";
+import MyChart from "./components/MyChart";
 import "./App.css"
 
 function FetchData() {

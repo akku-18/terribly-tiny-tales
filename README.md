@@ -1,11 +1,5 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -14,10 +8,35 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+### `Additional dependencies`
+
+chart.js
+papaparse
+
+### `App.js is the main component that will be used to render other components`
+
+It has click useState that is false by default and will be used to render the start button initially and when clicked it will be true and will render the MyChart component with prop as object of words with their frequency 
+
+### `Data preprocessing`
+
+We have first fetch the entire text from https://www.terriblytinytales.com/test.txt, then changed the text to lower case, removed the punctuations and splitting them into spaces.
+
+#### Removing stop words
+
+In the entire text we have words like a, an, the, and, or these words have greater frequency in the text but these words are of less importance than other words so we need to remove them from the text to have a better analysis of the text as we have a target to plot a histogram of top 20 words having highest frequency
+
+### `MyChart Component`
+
+In this component we have used chart.js library to create a bar graph of 20 most frequent words. Sorted the data and sliced to get top 20 words as an object. Now we have stored the words in a labelsArray similarlly frequency to dataArray. Then we have added style tag to the parent div to add some styles.  
+
+### `ExportCSV Component`
+
+In the MyChart component we have used ExportCSV Component that get two arrays as props one of labels and other of frequency. In the component we have defined a handleExportClick() function that will we triggered on click which downloads the data into a csv format.
+
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -39,28 +58,6 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Deployed on netlify
