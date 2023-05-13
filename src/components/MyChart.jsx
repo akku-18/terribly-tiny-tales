@@ -21,10 +21,10 @@ export default function MyChart({ data }) {
       {
         label: "Frequency",
         data: dataArray,
-        backgroundColor: "blueviolet",
+        backgroundColor: "rgb(126, 11, 234)",
         borderColor: "#7952B3",
         borderWidth: 1,
-        borderRadius: 10, // set the border radius
+        borderRadius: 8, // set the border radius
       },
     ],
   };
@@ -58,7 +58,6 @@ export default function MyChart({ data }) {
             weight: "bold",
           },
           padding: 20, // set padding for the label
-          borderRadius: 10, // set border radius for the label
         },
       },
     },
